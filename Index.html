@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8° Ano 02</title>
+<style>
+/* ---------- SEU CSS EXISTENTE ---------- */
+body { background-color: #0b1a3d; font-family: Arial, sans-serif; padding: 20px; color: white; }
+h1 { font-size: 48px; font-weight: bold; display: flex; align-items: center; gap: 15px; }
+.rainbow-text { background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: rainbow 5s linear infinite; }
+.subtitle { font-size: 24px; background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: rainbow 5s linear infinite; }
+.instagram-rainbow { background: linear-gradient(90deg, #f09433, #e6683c, #dc2743, #cc2a7b, #bc38ff); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: instagramRainbow 5s linear infinite; }
+
+@keyframes instagramRainbow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+.alunos-title, .professores-title, .eventos-title, .eventosAcontecendo-title, .proximos-title { font-size: 28px; color: red; margin-top: 40px; }
+ul { list-style-type: none; padding: 15px; font-size: 20px; margin-top: 10px; border: 1px solid #444; border-radius: 10px; max-width: 600px; background-color: rgba(255,255,255,0.1); }
+li { margin: 5px 0; padding: 5px 10px; transition: color 0.3s, background-color 0.3s; border-radius: 5px; cursor: pointer; }
+li:hover { color: orange; background-color: rgba(255,255,255,0.15); }
+#schoolImage { width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); margin-bottom: 20px; }
+#credit { position: fixed; bottom: 5px; right: 10px; font-size: 12px; color: #cccccc; opacity: 0.7; z-index: 1000; }
+#regente { margin-top: 30px; font-size: 22px; max-width: 600px; border: 1px solid #444; padding: 10px 15px; border-radius: 10px; background-color: rgba(255,255,255,0.1); }
+#explicacao { margin-top: 40px; max-width: 800px; padding: 15px 20px; border: 1px solid #444; border-radius: 10px; background-color: rgba(255,255,255,0.1); }
+
+/* ---------- LINHA ANIMADA ---------- */
+.linha-animada { position: relative; font-weight: bold; color: white; display: inline-block; overflow: hidden; line-height: 1em; }
+.linha-animada::before { content: attr(data-text); position: absolute; left: 0; top: 0; width: 100%; color: black; clip-path: polygon(0 -40%, 100% -40%, 100% 0%, 0 0); animation: linhaDesce 2s linear infinite; }
+@keyframes linhaDesce { 0% { clip-path: polygon(0 -40%, 100% -40%, 100% 0%, 0 0); opacity: 1; } 85% { clip-path: polygon(0 100%, 100% 100%, 100% 140%, 0 140%); opacity: 1; } 86% { opacity: 0; } 99% { opacity: 0; clip-path: polygon(0 -40%, 100% -40%, 100% 0%, 0 0); } 100% { opacity: 1; } }
+
+/* ---------- GRADIENTES DOS EVENTOS ---------- */
+.halloween span.event-text { background: linear-gradient(90deg, #ff8c00, #ffb347, #ff6700, #ffa500); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: colorMove 4s linear infinite; }
+.outubroRosa span.event-text { background: linear-gradient(90deg, #ff69b4, #ffb6c1, #ff1493, #ffc0cb); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: colorMove 4s linear infinite; }
+.setembroAmarelo span.event-text { background: linear-gradient(90deg, #ffd700, #fff44f, #fdfd96, #ffec00); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: colorMove 4s linear infinite; }
+.independencia span.event-text { background: linear-gradient(90deg, #006400, #00ff00, #32cd32, #228b22); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: colorMove 4s linear infinite; }
+.festaJunina span.event-text { background: linear-gradient(90deg, #ff0000, #ff4d4d, #b22222, #ff6347); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: colorMove 4s linear infinite; }
+.pascoa span.event-text { background: linear-gradient(90deg, #800080, #ba55d3, #da70d6, #9932cc); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: colorMove 4s linear infinite; }
+.interclasses span.event-text { background: linear-gradient(90deg, #00f, #0ff, #0099ff, #33ccff, #3399ff); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: rainbow 5s linear infinite; }
+
+@keyframes colorMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes rainbow { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
+
+.aniver-celebrate { animation: aniverPop 900ms ease forwards; }
+@keyframes aniverPop { 0% { transform: scale(1); } 50% { transform: scale(1.1); text-shadow: 0 0 15px rgba(255,255,255,0.8); } 100% { transform: scale(1); text-shadow: none; } }
+
+#popup { position: fixed; bottom: 50px; left: 50%; transform: translateX(-50%); background-color: rgba(255,255,255,0.95); color: black; padding: 15px 20px; border-radius: 10px; font-size: 18px; max-width: 600px; text-align: center; opacity: 0; transition: opacity 1s ease-in-out; z-index: 999; }
+
+/* ---------- TELA DE CARREGAMENTO ---------- */
+#loadingScreen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #0b1a3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease;
+}
+.spinner {
+  border: 8px solid rgba(255,255,255,0.2);
+  border-top: 8px solid white;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#loadingText { font-size: 20px; color: white; }
+</style>
+</head>
+<body>
+
+<!-- ---------- TELA DE CARREGAMENTO ---------- -->
+<div id="loadingScreen">
+  <div class="spinner"></div>
+  <p id="loadingText">Aguarde! A Wiki Está Carregando...</p>
+</div>
+
+<!-- ---------- SEU CONTEÚDO ---------- -->
+<img id="schoolImage" src="https://tse4.mm.bing.net/th/id/OIP.QGvw-65tLv7OLHyoBMiFWwHaEL?pid=Api" alt="EEB Professora Neusa Ostetto Cardoso">
+
+<h1>
+  <span class="rainbow-text">8° Ano 02</span>
+  <span class="subtitle">(ENOC/ECIM)</span>
+</h1>
+
+<div id="explicacao">
+  <h2 style="color: red; font-size: 28px;">Explicação sobre o 8° Ano 02</h2>
+  <p style="font-size: 20px; margin-top: 10px;">
+    O 8° Ano 02 é uma Turma da Escola Neusa Ostetto Cardoso, uma escola Cívico Militar na Região Sul. Uma de suas melhores turmas, é competitiva, é topzera das galaxias e muito mais!
+  </p>
+</div>
+
+<div class="alunos-title">Alunos</div>
+<ul id="alunosList">
+  <li>Agatha</li><li>Amanda</li><li>Anny</li><li>Antonio</li><li>Dafne</li><li>Davi</li><li>Eloiza</li><li>Gustavo</li>
+  <li>Henrique (aluno faltante)</li><li>Isabela</li><li>Isadora</li><li>Jamily</li><li><span class="rainbow-text">Leny</span></li><li>Luiz Fernando</li>
+  <li>Luiz Ricardo</li><li>Maria Clara</li><li>Maria Eduarda</li><li>Mariane</li><li>Mauro</li><li>Melissa</li>
+  <li>Michael</li><li>Nicolas</li><li>Olavo</li><li>Sofia</li><li>Vitória</li><li>Yasmim</li>
+</ul>
+
+<div style="margin-top: 40px;">
+  <div style="font-size: 28px; color: #90ee90; font-weight: bold;">Alunos Destaques 2025</div>
+  <ul style="list-style-type: none; padding: 15px; font-size: 20px; margin-top: 10px; border: 1px solid #444; border-radius: 10px; max-width: 600px; background-color: rgba(255,255,255,0.1);">
+    <li style="color: #006400;">Miriam🏅</li>
+    <li style="color: #006400;">Mauro🏅</li>
+    <li><em>???</em> (Aluno(a) Não Confirmado/Revelado)</li>
+  </ul>
+</div>
+
+<div id="popup"></div>
+
+<div id="regente">
+  <span style="color: red; font-weight: bold;">Regente:</span>
+  <span class="rainbow-text">Profª Cintia</span>
+</div>
+
+<div class="professores-title">Professores</div>
+<ul id="professoresList">
+  <li style="color: darkgreen;">Samira</li>
+  <li style="color: orange;">Márcia</li>
+  <li style="color: yellow;">Josiel</li>
+  <li style="color: lightgreen;">Talita</li>
+  <li style="color: darkorange;">Dila</li>
+  <li style="color: brown;">Jonas</li>
+  <li style="color: red;">Zeza</li>
+  <li style="color: gray;">Lu</li>
+  <li class="rainbow-text">Segunda Profª (Márcia)</li>
+  <li class="rainbow-text">Terceira Profª (Magda)</li>
+  <li class="rainbow-text">Profª Cintia</li>
+</ul>
+
+<div class="eventos-title">Eventos Recentes</div>
+<ul id="eventosList">
+  <li class="interclasses"><span class="event-text">Interclasses</span> 🏆</li>
+  <li class="halloween"><span class="event-text">Halloween</span> 🎃</li>
+  <li class="outubroRosa"><span class="event-text">Outubro Rosa</span> 🎀</li>
+  <li class="setembroAmarelo"><span class="event-text">Setembro Amarelo</span> 🎗️</li>
+  <li class="independencia"><span class="event-text">Dia da Independência do Brasil</span> 🇧🇷</li>
+  <li class="festaJunina"><span class="event-text">Festa Junina</span> 🔥</li>
+  <li class="pascoa"><span class="event-text">Páscoa</span> 🐰</li>
+</ul>
+
+<div class="proximos-title">Eventos Próximos</div>
+<ul id="proximosEventosList">
+  <li style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+    <span class="linha-animada" data-text="Fim das Aulas">Fim das Aulas</span>
+  <span style="color:#cfcfcf;"></span> - 1 de Dezembro / <span id="contador"></span> </li> 
+</ul>
+
+<div class="proximos-title">Aniversariantes</div>
+<ul id="aniversariantesList">
+  <li>Agatha – ???</li>
+  <li>Amanda – ???</li>
+  <li>Anny – ???</li>
+  <li>Antonio – 17/01</li>
+  <li>Dafne – ???</li>
+  <li>Davi – ???</li>
+  <li>Eloiza - ???</li>
+  <li>Gustavo – ???</li>
+  <li>Henrique - ???</li>
+  <li>Isabela – ???</li>
+  <li>Isadora – ???</li>
+  <li>Jamily – ???</li>
+  <li>Leny – ???</li>
+  <li>Luiz Fernando – ???</li>
+  <li>Luiz Ricardo – 20/08</li>
+  <li>Maria Clara – ???</li>
+  <li>Maria Eduarda – ???</li>
+  <li>Mariane – ???</li>
+  <li>Mauro – 12/08</li>
+  <li>Melissa – ???</li>
+  <li>Michael – ???</li>
+  <li>Nicolas – ???</li>
+  <li>Olavo – ??? (Coitado,acha que me engana com essa data)</li>
+  <li>Sofia – ???</li>
+  <li>Vitória – ???</li>
+  <li>Yasmim – 14/06</li>
+</ul>
+
+<!-- 🔹 PRÓXIMOS -->
+<h2 id="proximos-title" style="color: #87cefa; font-size: 28px; margin-top: 30px;">Foto dos Alunos (Clique Para Ver)</h2>
+
+<ul id="proximosList" style="list-style-type: none; padding: 10px; font-size: 20px;">
+  <li>Agatha</li>
+  <li>Amanda</li>
+  <li>Anny</li>
+  <li>Antonio</li>
+  <li>Dafne</li>
+  <li>Davi</li>
+  <li>Eloiza</li>
+  <li>Gustavo</li>
+  <li>Henrique</li>
+  <li>Isabela</li>
+  <li>Isadora</li>
+  <li>Jamily</li>
+  <li>Leny</li>
+  <li>Luiz Fernando</li>
+  <li>Luiz Ricardo</li>
+  <li>Maria Clara</li>
+  <li>Maria Eduarda</li>
+  <li>Mariane</li>
+  <li>Mauro</li>
+  <li>Melissa</li>
+  <li>Michael</li>
+  <li>Nicolas</li>
+  <li>Olavo</li>
+  <li>Sofia</li>
+  <li>Vitória</li>
+  <li>Yasmim</li>
+</ul>
+
+<!-- 🔹 FOTO QUE APARECE AO CLICAR -->
+<img id="fotoProximo" src="" alt="Não Contém Foto." style="
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+  border: 2px solid white;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s;
+  z-index: 9999;
+">
+
+<script>
+  // 🖼️ Links das fotos dos alunos 
+  const imagensProximos = {
+    "Agatha": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/542924337_658118380705702_1288865796404657097_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AHp8OrsEtHFBwcx1WywWJZBF6RD5aIFBLFPcBUwosD-Vg&oe=691E1B10&_nc_sid=5e03e0&_nc_cat=100",
+    "Amanda": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/491875770_970731845046588_50332467246911737_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AHrF7Be9dmjHEeJA23BouayZyfigAmyLohNlir14qAEyQ&oe=691E2788&_nc_sid=5e03e0&_nc_cat=111",
+    "Anny": "https://link-da-foto-da-anny.jpg",
+    "Antonio": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/534419379_1372615821106109_8520063236085587629_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AG2l8aAJBf0bWeIkzNaNGG9aM4pyGW_-wwQxHgu7V6bJA&oe=691E25CD&_nc_sid=5e03e0&_nc_cat=111",
+    "Dafne": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/534388396_1371310251287388_768397931410180389_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AEmiVz7DcsIyqlcoTbRkxP4PM86A818NHVhhSSfspKLBA&oe=691E10A5&_nc_sid=5e03e0&_nc_cat=110",
+    "Davi": "https://link-da-foto-do-davi.jpg",
+    "Eloiza": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/505231899_816225577828476_1723240611838011185_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AGVRGCPtnoPVDF6KkpVx6U55rqkNWXzyhYkGVhhJ5CIdQ&oe=691E1758&_nc_sid=5e03e0&_nc_cat=109",
+    "Gustavo": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/521419964_2570164926686310_1731861936010770448_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AFJAYbVVmNikHTsz_80QgpAL0sPQ9sdO34GVRlEcy6sBQ&oe=691E2C80&_nc_sid=5e03e0&_nc_cat=102",
+    "Henrique": "https://link-da-foto-do-henrique.jpg",
+    "Isabela": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/534416262_9715884131869701_6629035151959619493_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AHrc__7hdQt66GECOu7E95CMPH91F2LK6Hf3v8xsxNYew&oe=691E3354&_nc_sid=5e03e0&_nc_cat=102",
+    "Isadora": "https://link-da-foto-da-isadora.jpg",
+    "Jamily": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/534423523_1576385960331516_6870834730862448984_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AET746VPtw1jz_7-5nUVZs2wMOUYPJ1ctCIWD22dNFUTw&oe=691E2E8F&_nc_sid=5e03e0&_nc_cat=102",
+    "Leny": "https://pps.whatsapp.net/v/t61.24694-24/491866896_661192536259770_2363066463549351483_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa2wH4uUufs151n7QR6M-YDNMyrGC8oJxifzdYr-s4BcDSrA&oe=69178529&_nc_sid=5e03e0&_nc_cat=106",
+    "Luiz Fernando": "https://link-da-foto-do-luiz-fernando.jpg",
+    "Luiz Ricardo": "https://pps.whatsapp.net/v/t61.24694-24/534417065_2192062694646701_4995729544168406779_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa2wGTmNOql8VoCJtRI1dTm97WYpMiVOpoJGFczsIhJi324Q&oe=69179DB5&_nc_sid=5e03e0&_nc_cat=100",
+    "Maria Clara": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/539363161_2008124763061703_5425270701729541124_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AHbr3jOlcgKnnbckni78OqT2lyUOk94u1gYc8NuM4Kgvg&oe=691E2472&_nc_sid=5e03e0&_nc_cat=103",
+    "Maria Eduarda": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/534421454_1153102983624123_8554481161863745195_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AFHu8nSpXLobfS8UvOmj5-3xtkJsO3xANXXnN2wsLhmJg&oe=691E190E&_nc_sid=5e03e0&_nc_cat=100",
+    "Mariane": "https://link-da-foto-da-mariane.jpg",
+    "Mauro": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/521595111_1223804296224152_8160826501771485253_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AGTmqwh1Wmz54JUKnCWPuSZIIr54gI4RKpGQ6tBeaI2AQ&oe=691E0FD0&_nc_sid=5e03e0&_nc_cat=104",
+    "Melissa": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/516404360_1341188417407657_7849057742027413790_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AGRjirD-KNcZpfxIZaITpyozyCCgMUYe_IDglzsGo44rQ&oe=691E4104&_nc_sid=5e03e0&_nc_cat=100",
+    "Michael": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/544438645_1458880715181404_9167600874324520643_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AH1ZCR2DRgBcqXxJUK3MF7LDp88jRiMzwSPWauINTVlHw&oe=691E281C&_nc_sid=5e03e0&_nc_cat=110",
+    "Nicolas": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/577692806_1858339241458534_4702258289818950274_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AEngB16Jn1J0Dq4uz9PDDPGuOZb0TqU1KHca4Lo7ZUUSA&oe=691E2632&_nc_sid=5e03e0&_nc_cat=110",
+    "Olavo": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/578014657_3213936395442458_268610870373009579_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AEeLqfLwdbkgVU4GzFpG4Xkh9ZMF-Uo51-lAOnEqltaHg&oe=691E1226&_nc_sid=5e03e0&_nc_cat=102",
+    "Sofia": "https://link-da-foto-da-sofia.jpg",
+    "Vitória": "https://media-poa1-1.cdn.whatsapp.net/v/t61.24694-24/534426027_1841906843357090_6858420320251088172_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa3AHyZK6zYel_-MyjEdJGr4b_aAB3jYp3OugsCO4vq8AuFA&oe=691E360C&_nc_sid=5e03e0&_nc_cat=105",
+    "Yasmim": "https://pps.whatsapp.net/v/t61.24694-24/545789300_844343018116150_1289058044691259248_n.jpg?stp=dst-jpg_s96x96_tt6&ccb=11-4&oh=01_Q5Aa2wGP4Yxus6grIW8TYw5QFZ4GbJfBJI67QZ0yifGfGEiBSw&oe=69176A50&_nc_sid=5e03e0&_nc_cat=101"
+  };
+
+  const fotoProximo = document.getElementById("fotoProximo");
+
+  document.querySelectorAll("#proximosList li").forEach(li => {
+    li.addEventListener("click", () => {
+      const nome = li.textContent.trim();
+      const link = imagensProximos[nome];
+      if (link) {
+        fotoProximo.src = link;
+        fotoProximo.style.opacity = "1";
+
+        // esconde depois de 6 segundos
+        clearTimeout(fotoProximo.timeout);
+        fotoProximo.timeout = setTimeout(() => {
+          fotoProximo.style.opacity = "0";
+        }, 7000);
+      }
+    });
+  });
+</script>
+
+<div class="proximos-title">Contagem até 9° Ano</div>
+<ul id="contagem9AnoList">
+  <li>Contador Janeiro <span style="color:#cfcfcf;">(Estimativo)</span>: <span id="contadorJaneiro"></span></li>
+  <li>Contador Fevereiro <span style="color:#cfcfcf;">(Estimativo)</span>: <span id="contadorFevereiro"></span></li>
+</ul>
+
+<div class="proximos-title"><h2 class="instagram-rainbow">Instagram</h2></div>
+<ul id="instagramList">
+  <li>
+    Nome: <span style="color: red;">802.enoc</span><br>
+    <a href="https://acesse.one/i5kxq" target="_blank" style="color: red; display: block; margin-top: 5px;">https://acesse.one/i5kxq</a>
+    Dona: <span class="rainbow-text">Leny</span>
+  </li>
+</ul>
+
+<div style="margin-top: 30px; font-size: 22px; max-width: 600px; display: flex; align-items: center; gap: 8px;">
+  <span style="color: red; font-weight: bold;">Diretora:</span>
+  <span class="linha-animada" data-text="Mara">Mara</span>
+</div>
+
+<div id="credit">Estherferson e Mauro. Todos Os Direitos Reservados</div>
+
+<script>
+// ---------- TELA DE CARREGAMENTO COM CHECK ----------
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    const loadingScreen = document.getElementById("loadingScreen");
+
+    // Substituir spinner pelo ✅
+    loadingScreen.innerHTML = `
+      <img src="https://images.vexels.com/media/users/3/157890/isolated/preview/4f2c005416b7f48b3d6d09c5c6763d87-icone-de-circulo-com-marca-de-verificacao.png"
+           alt="Carregado" style="width:100px;margin-bottom:20px;">
+      <p id="loadingText" style="font-size:22px;color:white;">Wiki Carregada!</p>
+    `;
+
+    // Mantém 2 segundos e depois desaparece
+    setTimeout(() => {
+      loadingScreen.style.opacity = "0";
+      setTimeout(() => loadingScreen.style.display = "none", 1000);
+    }, 3500);
+
+  }, 10000); // 7 segundos
+});
+
+// ---------- DESCRIÇÕES ----------
+const descricoes = {
+  "Agatha": "Uma das mais quietas da sala,normal,faz tarefas,trabalhos,provas e cuida da sua vida.",
+  "Amanda": "Uma das mais tímidas ou a mais tímida. Parece não falar com ninguém mas fala com seu grupinho.",
+  "Anny": "Chegou recentemente,era introvertida e virou extrovertida facilmente.",
+  "Antonio": "O 244 da sala. Conversa com seu grupo e se safou da diretoria recentemente.",
+  "Dafne": "A chatinha da sala. Qualquer coisa briga.",
+  "Davi": "O \"educadinho\" da sala e \"bonzinho\" da sala. O 3° melhor amigo do Criador da Wiki.",
+  "Eloiza": "Igual Davi,parece \"educada\" mas não parece. CADA MINIMA OLHAADA ELA OLHA PRA GENTE DE UM JEITO ESTRANHO.",
+  "Gustavo": "O legal da sala. Amigo do atentado da sala e do 244. Faz parte do grupo dos 3.",
+  "Henrique (aluno faltante)": "O aluno turista. Nunca vem pra aula por causa de sei lá oque e faz mais de 100 dias que não vem pra aula.",
+  "Isabela": "Faz parte do grupinho que Amanda participa. Falta nas aulas de português.",
+  "Isadora": "A sabichona de matemática da sala. Tipo Leonhard Euler só que mulher.",
+  "Jamily": "A 2ª melhor amiga do Criador da Wiki. É comportada mas fala com seu grupo.",
+  "Leny": "A líder e mascote da diretora. Tecnicamente a filmadora da sala (Calma amiga,é só uma figurinha)",
+  "Luiz Fernando": "O 1º melhor amigo do Criador da Wiki. Fala piadas pesadas e liga mais pra sua vida.",
+  "Luiz Ricardo": "O 3º mais atendado da sala. Foi expulso da manhã pra vir pra de tarde. Simplesmente porque Diretora?",
+  "Maria Clara": "A 4ª mais atendada da sala. O Criador da Wiki não gosta muito dela.",
+  "Maria Eduarda": "A namorada do 1° mais atendado da sala. Era bagunceira agora não é mais. Sente vergonha do seu namorado.",
+  "Mariane": "A amiga do 3ª melhor amigo do Criador da Wiki. É comportada e entrega os trabalhos da sala e provas,porem conversa com sua amiga mais próxima.",
+  "Mauro": "O Criador da Wiki. O mais odiado da sala,sei la o porque,mas eu não ligo,são tudo desempregados mesmo KKKKKKKJKKKKKJ.",
+  "Melissa": "A Best do Criador da Wiki. CALA_BOCA_MAURO📍,RODÍZIO_MAURO📍",
+  "Michael": "O Amigo do Criador da Wiki. Ele é misterioso mais ele é da hora",
+  "Nicolas": "O 2º mais atendado da sala. O mais machucado do seu grupo.",
+  "Olavo": "O 1º mais atendado da sala. Tem seu próprio personagem,mas quando é algo sério,ele sai do seu personagem e ajuda a vítima.",
+  "Sofia": "A amiga da Mariane. Conversa muito com sua amiga.",
+  "Vitória": "Umas das amigas do Criador da Wiki. Era uma pessoa normal,até seu grupo á traumatizar.",
+  "Yasmim": "Chaverinho da Diretora. Sempre juntas."
+};
+
+const popup = document.getElementById("popup");
+const clickSound = new Audio("https://www.soundjay.com/button/beep-07.wav");
+
+function ativarEfeito(li) {
+  li.classList.add("aniver-celebrate");
+  setTimeout(() => li.classList.remove("aniver-celebrate"), 900);
+  clickSound.currentTime = 0;
+  clickSound.play();
+}
+
+document.querySelectorAll("#alunosList li").forEach(li => {
+  li.addEventListener("click", () => {
+    const nome = li.textContent.split("–")[0].trim();
+    if (descricoes[nome]) {
+      popup.textContent = descricoes[nome];
+      popup.style.opacity = "1";
+      clearTimeout(popup.timeout);
+      popup.timeout = setTimeout(() => popup.style.opacity = "0", 7000);
+    }
+    ativarEfeito(li);
+  });
+});
+
+document.querySelectorAll("#aniversariantesList li").forEach(li => {
+  li.addEventListener("click", () => ativarEfeito(li));
+});
+
+// ---------- CONTADORES ----------
+function atualizarContador() {
+  const agora = new Date();
+  const fim = new Date(agora.getFullYear(), 11, 1, 0, 0, 0);
+  const diff = fim - agora;
+  const contadorElemento = document.getElementById("contador");
+  if (diff <= 0) { contadorElemento.textContent = "Acabou! Boas Férias!"; return; }
+  const dias = Math.floor(diff / (1000*60*60*24));
+  const horas = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const minutos = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const segundos = Math.floor((diff % (1000*60)) / 1000);
+  contadorElemento.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+}
+atualizarContador(); setInterval(atualizarContador, 1000);
+
+function atualizarContador9Ano() {
+  const agora = new Date();
+  const janeiro = new Date(agora.getFullYear()+1,0,1,0,0,0);
+  const fevereiro = new Date(agora.getFullYear()+1,1,1,0,0,0);
+  function calcularDiff(fim){
+    const diff = fim - agora;
+    if(diff<=0) return "Começou!";
+    const dias = Math.floor(diff / (1000*60*60*24));
+    const horas = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const minutos = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const segundos = Math.floor((diff % (1000*60)) / 1000);
+    return `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+  }
+  document.getElementById("contadorJaneiro").textContent = calcularDiff(janeiro);
+  document.getElementById("contadorFevereiro").textContent = calcularDiff(fevereiro);
+}
+atualizarContador9Ano(); setInterval(atualizarContador9Ano,1000);
+
+</script>
+<script>
+setTimeout(() => {
+  const texto = document.getElementById("loadingText");
+  texto.innerHTML = "Boas vindas a Wiki do 8° Ano 02!";
+  texto.classList.add("rainbow-text");
+}, 12000);
+
+</script>
+</body>
+</html>
